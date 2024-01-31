@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+
+    <!-- Add your CSS links here -->
+    <link rel="stylesheet" href="path/to/your/css/file.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+                        
+        <link href="/user_dashboard/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="/user_dashboard/css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="/user_dashboard/css/templatemo-topic-listing.css" rel="stylesheet">   
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+       
+        <!-- CSS only -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+   
+</head>
+
+<body>
+
+    <!-- Modal for User Profile -->
+    <div id="userProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeUserProfile()">&times;</span>
+
+            <div class="container">
+                <div class="row gutters">
+                    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="account-settings">
+                                    <div class="user-profile">
+                                        <div class="user-avatar">
+                                            <img src="https://plus.unsplash.com/premium_photo-1664298528358-790433ba0815?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHVzZXIlMjBwcm9maWxlfGVufDB8fDB8fHww"
+                                                alt="Maxwell Admin" style="width: 100%; height: auto;">
+                                        </div>
+                                        <h5 class="user-name">Yuki Hayashi</h5>
+                                        <h6 class="user-email">yuki@Maxwell.com</h6>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 class="mb-2 text-primary">Personal Details</h6>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                                        <div class="form-group">
+                                            <label for="fullName">User Name</label>
+                                            <input type="text" class="form-control" id="fullName" placeholder="Enter user name">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                                        <div class="form-group">
+                                            <label for="eMail">Email</label>
+                                            <input type="email" class="form-control" id="eMail" placeholder="Enter email ID">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                                        <div class="form-group">
+                                            <label for="phone">Password</label>
+                                            <input type="password" class="form-control" id="phone" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                                        <div class="form-group">
+                                            <label for="userid">User ID</label>
+                                            <input type="text" class="form-control" id="userid" placeholder="User ID">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="text-right">
+                                            <button type="button" id="cancel" name="cancel" class="btn btn-secondary"
+                                                onclick="closeUserProfile()">Cancel</button>
+                                            <button type="button" id="update" name="update" class="btn btn-primary">Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="/user_dashboard/js/jquery.min.js"></script>
+        <script src="/user_dashboard/js/bootstrap.bundle.min.js"></script>
+        <script src="/user_dashboard/js/jquery.sticky.js"></script>
+        <script src="/user_dashboard/js/click-scroll.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+        <script src="/user_dashboard/js/custom.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+ElP9KLmQL5Pw0+9r/JUmbGFGJ1jFQ484JwF/pvHFExegMW" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script  src="/user_dashboard/js/script.js"></script>
+    <!-- Add your additional HTML content or scripts here -->
+
+</body>
+
+</html>
+

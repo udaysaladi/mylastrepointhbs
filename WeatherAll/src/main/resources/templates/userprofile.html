@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Profile App</title>
+  <link rel="stylesheet" href="path/to/your/fontawesome/css/all.min.css">
+  <style>
+    /* Your CSS styles go here */
+    body {
+      font-family: 'Hind Guntur', sans-serif;
+      color: #054231;
+      display: flex;
+      justify-content: center;
+      background: #49afa8;
+      background-image: url('https://github.com/OlgaKoplik/CodePen/blob/master/leaf.png?raw=true');
+      background-repeat: no-repeat, no-repeat;
+      background-position: 200% -40%;
+      background-size: 80%;
+    }
+
+    .card {
+      width: 410px;
+      height: 600px;
+      padding: 15px;
+      margin-top: 40px;
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      box-shadow: 15px 10px 25px 0px #3fa1a9;
+      background: #fff;
+      background-image: url('https://github.com/OlgaKoplik/CodePen/blob/master/leaf2.png?raw=true'),
+        url('https://github.com/OlgaKoplik/CodePen/blob/master/leaf.png?raw=true');
+      background-repeat: no-repeat, no-repeat;
+      background-position: 120% -5%, 200% -40%;
+      background-size: 40%, 80%;
+      animation: open 0.5s;
+    }
+
+    @keyframes open {
+      0% {
+        background-position: 166% -25%, 220% -69%;
+      }
+      100% {
+        background-position: 120% -5%, 200% -40%;
+      }
+    }
+
+    form {
+      /* border: 2px solid red; */
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .field {
+      margin: 10px 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      border-radius: 15px;
+      width: 300px;
+      border: 1px solid #b7b7b7;
+      padding: 8px 10px;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    input:focus {
+      outline: none;
+      border: 1px solid #64d488;
+    }
+
+    button {
+      position: relative;
+      color: #054231;
+      letter-spacing: 1px;
+      margin: 20px 0;
+      font-size: 18px;
+      padding: 10px;
+      text-align: center;
+      transition: 0.5s;
+      border-radius: 10px;
+      cursor: pointer;
+      border-radius: 25px;
+      border: none;
+      background: #64d488;
+    }
+
+    .edit {
+      color: #fff;
+      width: 180px;
+    }
+
+    button:hover {
+      left: 0;
+      color: #fff;
+      width: 180px;
+      box-shadow: 0px 0px 20px 0px hsl(156, 56%, 61%);
+    }
+
+    *,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
+
+.typing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    color: rgb(95, 73, 54);
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 40;
+}
+
+#typing::after {
+    content: '|';
+    position: relative;
+    right: 0;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to {
+        color: transparent
+    }
+    50% {
+        color: yellow;
+    }
+}
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div class="card">
+      <form>
+        <h1  class="typing" id="typing" ></h1>
+        <div class="field">
+          <label for="name">Name:</label>
+          <input id="name" type="text" placeholder="Enter your name" required>
+        </div>
+        <div class="field">
+          <label for="user-id">User ID:</label>
+          <input id="user-id" type="text" placeholder="Your UserID" required>
+        </div>
+        <div class="field">
+          <label for="email">Email:</label>
+          <input id="email" type="email" placeholder="youremail@example.com" required>
+        </div>
+        <div class="field">
+          <label for="password">Password:</label>
+          <input id="password" type="password" placeholder="********" required>
+        </div>
+        <div class="field">
+          <label for="status">Status:</label>
+          <input id="status" type="text" placeholder="It's a nice day!" required>
+        </div>
+        <button type="submit" class="edit">Edit Profile</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="path/to/your/fontawesome/js/all.min.js"></script>
+  <!-- Include other scripts if needed -->
+
+  <script>
+    const greeting = ['Profile Card'];
+let currentGreetingIndex = 0;
+let currentCharacterIndex = 0;
+let isDeleting = false;
+let isPaused = false;
+let pauseEnd = 0;
+
+function typeWriterEffect() {
+  const greetingElement = document.getElementById('typing');
+
+  if (isPaused && Date.now() > pauseEnd) {
+    isPaused = false;
+    if (isDeleting) {
+      currentGreetingIndex = (currentGreetingIndex + 1) % greeting.length;
+      isDeleting = false;
+    } else {
+      isDeleting = true;
+    }
+  }
+
+  if (!isPaused && !isDeleting && currentCharacterIndex === greeting[currentGreetingIndex].length) {
+    isPaused = true;
+    pauseEnd = Date.now() + 800; 
+    return setTimeout(typeWriterEffect, 50);
+  }
+
+  if (!isPaused && isDeleting && currentCharacterIndex === 0) {
+    isPaused = true;
+    pauseEnd = Date.now() + 200; 
+    return setTimeout(typeWriterEffect, 50);
+  }
+
+  const timeout = isDeleting ? 100 : 200;
+  greetingElement.innerText = greeting[currentGreetingIndex].substring(0, currentCharacterIndex);
+  currentCharacterIndex = isDeleting ? currentCharacterIndex - 1 : currentCharacterIndex + 1;
+  setTimeout(typeWriterEffect, timeout);
+}
+
+typeWriterEffect();
+  </script>
+</body>
+</html>
